@@ -1,0 +1,106 @@
+{
+  "results": [
+    {
+      "classrooms": [
+        {
+          "Name": "Ms. Elizabeth - Morning",
+          "StartTime": "09:00:00",
+          "EndTime": "12:00:00",
+          "Educator": "Ms. Elizabeth",
+          "Secondary Educator": "Ms. Suchi",
+          "School": "Montessori Fountainhead (Dublin)",
+          "Grade": "Pre-K",
+          "Learners": [
+            {
+              "brendan-tsai": {
+                "FirstName": "Brendan",
+                "LastName": "Tsai",
+                "ProfileImageUrl": "../assets/images/brendan.png",
+                "Gender": "male",
+                "Birthdate": "2013-05-20T00:00:00-0:00",
+                "PrimaryParent": "Annie Tsai",
+                "SecondarParent": "Tom Tsai",
+              },
+              "chloe-torres": {
+                "FirstName": "Chloe",
+                "LastName": "Torres",
+                "ProfileImageUrl": "../assets/images/chloe.png",
+                "Gender": "female",
+                "Birthdate": "2011-12-08T00:00:00-0:00",
+                "PrimaryParent": "Colleen Liang",
+                "SecondarParent": "Marcus Torres",
+              },
+              "mia-torres": {
+                "FirstName": "Mia",
+                "LastName": "Torres",
+                "ProfileImageUrl": "../assets/images/mia.png",
+                "Gender": "female",
+                "Birthdate": "2013-06-14T00:00:00-0:00",
+                "PrimaryParent": "Marcus Torres",
+                "SecondarParent": "Colleen Liang",
+              },
+              "mia-torres2": {
+                "FirstName": "Mia",
+                "LastName": "Torres",
+                "ProfileImageUrl": "../assets/images/mia.png",
+                "Gender": "female",
+                "Birthdate": "2013-06-14T00:00:00-0:00",
+                "PrimaryParent": "Marcus Torres",
+                "SecondarParent": "Colleen Liang",
+              },
+            }
+          ], 
+        },
+        {
+          "Name": "Mr. Tom - Afternoon",
+          "StartTime": "12:00:00",
+          "EndTime": "15:00:00",
+          "Educator": "Mr. Tom",
+          "Secondary Educator": "Ms. Villa",
+          "School": "Montessori Fountainhead (Dublin)",
+          "Grade": "Pre-K",
+          "Learners": [
+            {
+              "brendan-tsai": {
+                "FirstName": "Brendan",
+                "LastName": "Tsai",
+                "ProfileImageUrl": "../assets/images/brendan.png",
+                "Gender": "male",
+                "Birthdate": "2013-05-20T00:00:00-0:00",
+                "PrimaryParent": "Annie Tsai",
+                "SecondarParent": "Tom Tsai",
+              },
+              "chloe-torres": {
+                "FirstName": "Chloe",
+                "LastName": "Torres",
+                "ProfileImageUrl": "../assets/images/chloe.png",
+                "Gender": "female",
+                "Birthdate": "2011-12-08T00:00:00-0:00",
+                "PrimaryParent": "Colleen Liang",
+                "SecondarParent": "Marcus Torres",
+              },
+              "mia-torres": {
+                "FirstName": "Mia",
+                "LastName": "Torres",
+                "ProfileImageUrl": "../assets/images/mia.png",
+                "Gender": "female",
+                "Birthdate": "2013-06-14T00:00:00-0:00",
+                "PrimaryParent": "Marcus Torres",
+                "SecondarParent": "Colleen Liang",
+              },
+              "mia-torres2": {
+                "FirstName": "Mia",
+                "LastName": "Torres",
+                "ProfileImageUrl": "../assets/images/mia.png",
+                "Gender": "female",
+                "Birthdate": "2013-06-14T00:00:00-0:00",
+                "PrimaryParent": "Marcus Torres",
+                "SecondarParent": "Colleen Liang",
+              },
+            }
+          ], 
+        },
+      ],
+    }
+  ]
+}
