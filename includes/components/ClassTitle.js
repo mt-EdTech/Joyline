@@ -15,12 +15,12 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Arial',
     fontSize: 18,
-    color: appStyles.HEADER_TEXT_COLOR,
+    color: 'white',
     textAlign: 'left',    
   },
   classHeader: {
     flexDirection: 'row',
-    backgroundColor: 'gray',
+    backgroundColor: 'black',
     padding: 5,
     height: 30,
     alignSelf: 'stretch',

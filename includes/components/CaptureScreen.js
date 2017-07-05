@@ -12,6 +12,11 @@ import Camera from 'react-native-camera';
 export default class CaptureScreen extends React.Component {
   static navigationOptions = {
     title: 'Camera',
+    headerStyle: {
+            backgroundColor: 'green',
+            height: 50,
+    },
+    headerTintColor: '#FFFFFF',
   };
 
   constructor(props) {
@@ -32,10 +37,11 @@ export default class CaptureScreen extends React.Component {
   }
 
   takePicture = () => {
+  	debugger;
     if (this.camera) {
       this.camera.capture()
-        .then((data) => console.log(data))
-        .catch(err => console.error(err));
+        .then((data) => console.log('Camera Capture:'+data))
+        .catch(err => console.error('Camera Capture Error:'+err));
     }
   }
 

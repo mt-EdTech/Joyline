@@ -5,7 +5,7 @@ import { Text,
          StyleSheet
 	   } from 'react-native';
 
-const ChatText = ({ headerText, bodyText }) => ( 
+const ChatListText = ({ headerText, bodyText }) => ( 
   <View style={styles.chatTextView}>
   	<Text style={styles.chatHeader}>
   		{headerText}
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ChatText;
+export default ChatListText;

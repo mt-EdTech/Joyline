@@ -14,11 +14,12 @@ import {
   Dimensions,
   StatusBar,
   TouchableOpacity,
-  Text
+  Text,
+  Button
 } from 'react-native';
 
 import {
-  StackNavigator,
+  StackNavigator,  
 } from 'react-navigation';
 
 //import * as appStyles from './includes/styles/JoylineStyles';
@@ -26,15 +27,25 @@ import {
 import ClassroomGridScreen from './includes/components/ClassroomGridScreen';
 import CaptureScreen from './includes/components/CaptureScreen';
 import ChatListScreen from './includes/components/ChatListScreen';
+import ChatScreen from './includes/components/ChatScreen';
+import ChatButton from './includes/components/ChatButton';
+import CTAButton from './includes/components/CTAButton';
+import ProfileScreen from './includes/components/ProfileScreen';
 
 const imageName = require('./assets/images/chloe.png');
 
 // Set the status bar for iOS to light
-StatusBar.setBarStyle('dark-content');
+StatusBar.setBarStyle('light-content');
 
 export default class LaunchScreen extends Component {
   static navigationOptions = {
     title: 'Home',
+    headerRight: <ChatButton badgeCount='3' />,
+    headerStyle: {
+            backgroundColor: 'green',
+            height: 50,
+    },
+    headerTintColor: '#FFFFFF',
   };
   
   constructor(props) {
@@ -51,7 +62,7 @@ export default class LaunchScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={[styles.container, this.getSize()]}>
+      <View style={[styles.container, this.getSize()]}>        
         <TouchableOpacity onPress={() => navigate('Class')} style={styles.button}>
           <Text style={styles.buttonText}>
             Class
@@ -62,11 +73,17 @@ export default class LaunchScreen extends Component {
             Camera
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigate('Chat')} style={styles.button}>
+        <TouchableOpacity onPress={() => navigate('ChatList')} style={styles.button}>
           <Text style={styles.buttonText}>
-            Chat
+            ChatList
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('Profile')} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Profile
+          </Text>
+        </TouchableOpacity>
+        <CTAButton />
       </View>
     );
   }
@@ -75,11 +92,13 @@ export default class LaunchScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',    
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
-    backgroundColor: 'blue',
-    width: 100,
+    backgroundColor: 'green',
+    width: 300,
     marginBottom: 20,
     padding: 20
   },
@@ -97,11 +116,17 @@ const Joyline = StackNavigator({
   Class: {
       screen: ClassroomGridScreen
   },
-  Chat: {
+  ChatList: {
       screen: ChatListScreen
+  },
+  Chat: {
+      screen: ChatScreen
   },
   Capture: {
       screen: CaptureScreen
+  },
+  Profile: {
+      screen: ProfileScreen
   },
 });
 
