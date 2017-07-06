@@ -34,7 +34,7 @@ export default class CaptureScreen extends React.Component {
       },
       isRecording: false
     };
-  }
+  }  
 
   takePicture = () => {
   	debugger;
@@ -63,6 +63,10 @@ export default class CaptureScreen extends React.Component {
         isRecording: false
       });
     }
+  }
+
+  cameraRoll = () => {
+    //access camera roll
   }
 
   switchType = () => {
@@ -155,8 +159,13 @@ export default class CaptureScreen extends React.Component {
           mirrorImage={false}
         />
         <View style={[styles.overlay, styles.topOverlay]}>
-          
-          
+          <TouchableOpacity style={styles.cameraRoll}           
+            onPress={this.cameraRoll}
+          >
+            <Image style={styles.cameraRollIcon}
+              source={require('../../assets/images/icon-image-white.png')}
+            />
+          </TouchableOpacity>          
         </View>
         <View style={[styles.overlay, styles.bottomOverlay]}>
           <TouchableOpacity
@@ -235,9 +244,9 @@ const styles = StyleSheet.create({
   },
   topOverlay: {
     top: 0,
-    flex: 1,
+    right: 0,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   bottomOverlay: {
@@ -263,4 +272,11 @@ const styles = StyleSheet.create({
   buttonsSpace: {
     width: 10,
   },
+  cameraRoll: {
+    padding: 5,
+  },
+  cameraRollIcon: {
+    width: 25,
+    height: 25,
+  }
 });

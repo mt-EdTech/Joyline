@@ -6,14 +6,16 @@ import { Image,
 
 const ImageTile = ({ source, labeltext }) => ( 
   <Image source={source} style={styles.imageTile}>
-    <Text style={styles.tileLabel}>
-      {labeltext}
-    </Text>
+    { this.labeltext &&
+      <Text style={styles.tileLabel}>
+        {labeltext}
+      </Text>
+    }
   </Image>
 ); 
  
 ImageTile.propTypes = { 
-  style: Text.propTypes.style,   
+
 }; 
 
 const styles = StyleSheet.create({

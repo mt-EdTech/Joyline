@@ -12,6 +12,8 @@ import ImageTile from './ImageTile';
 import ClassTitle from './ClassTitle';
 import CTAButton from './CTAButton';
 
+import { Radar } from 'react-native-pathjs-charts'
+
 const momentImage = require('../../assets/images/moment.jpg');
 const imageName = require('../../assets/images/chloe.png');
 
@@ -33,6 +35,40 @@ export default class ProfileScreen extends Component {
   }
 
   render() {
+
+    let data = [{
+      "Art": 6,
+      "English": 3,
+      "Cognitive": 4,
+      "Social": 4,
+      "Physical": 3 
+    }]
+
+    let options = {
+      width: 185,
+      height: 185,
+      margin: {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+      },
+      r: 70,
+      max: 10,
+      fill: "#fca222",
+      stroke: "#2980B9",
+      animate: {
+        type: 'oneByOne',
+        duration: 200
+      },
+      label: {
+        fontFamily: 'Arial',
+        fontSize: 11,
+        fontWeight: 500,
+        color: '#202020'        
+      }
+    }
+
     return (
       <Image source={require('../../assets/images/chalkboard.png')} style={[styles.backgroundImage, this.getSize()]}>
         <View style={styles.profileSection}>
@@ -42,86 +78,63 @@ export default class ProfileScreen extends Component {
               <Text style={styles.text}>Grade: Pre-K</Text>              
             </View>
             <View style={styles.profileCategorySection}>
-              <Text style={styles.text}>Category1</Text>
-              <Text style={styles.text}>Category2</Text>
-              <Text style={styles.text}>Category3</Text>
-              <Text style={styles.text}>Category4</Text>
-              <Text style={styles.text}>Category5</Text>
-              <Text style={styles.text}>Category6</Text>
+              <Radar data={data} options={options} />
             </View>
         </View>
         <View style={styles.imageGrid}>
             <ImageTile 
-                source={imageName}
-                labeltext={'Chloe'} 
+                source={momentImage}                
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Brendan'} 
+                source={momentImage}                
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Mia'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Chloe'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Brendan'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Mia'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Chloe'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Brendan'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Mia'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Chloe'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Brendan'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Mia'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Chloe'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Brendan'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Mia'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Chloe'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Brendan'} 
+                source={momentImage}
             />
             <ImageTile 
-                source={imageName}
-                labeltext={'Mia'} 
+                source={momentImage}
             />
           </View>
           <CTAButton />
@@ -152,15 +165,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   profileImage: {
-    width: 75,
-    height: 75,
+    width: 100,
+    height: 100,
     marginLeft: 10,
     marginRight: 10,
-    borderRadius: 38,
+    marginBottom: 15,
+    borderRadius: 50,
     marginTop:15,
   },  
   profileCategorySection: {
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     flex: 2,
   },
@@ -172,7 +186,10 @@ const styles = StyleSheet.create({
     overflow: 'scroll',
   },
   text: {
-    color: 'black'
+    color: '#202020',
+    fontFamily: 'Arial',
+    fontSize: 11,
+    fontWeight: '500',
   },
   roundedBar: {
     width: 100 * 2,
