@@ -38,6 +38,8 @@ export default class ProfileScreen extends Component {
         <View style={styles.profileSection}>
             <View style={styles.profilePhotoSection}>
               <Image source={ imageName } style={ styles.profileImage } />
+              <Text style={styles.text}>Age: 4</Text>
+              <Text style={styles.text}>Grade: Pre-K</Text>              
             </View>
             <View style={styles.profileCategorySection}>
               <Text style={styles.text}>Category1</Text>
@@ -155,6 +157,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     borderRadius: 38,
+    marginTop:15,
   },  
   profileCategorySection: {
     justifyContent: 'flex-start',
