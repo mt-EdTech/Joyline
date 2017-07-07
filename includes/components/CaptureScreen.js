@@ -1,10 +1,12 @@
 import React from 'react';
+
 import {
   Image,
   StatusBar,
   StyleSheet,
   TouchableOpacity,
   View,
+  CameraRoll
 } from 'react-native';
 
 import Camera from 'react-native-camera';
@@ -32,7 +34,10 @@ export default class CaptureScreen extends React.Component {
         orientation: Camera.constants.Orientation.auto,
         flashMode: Camera.constants.FlashMode.auto,
       },
-      isRecording: false
+      isRecording: false,
+      photos: [],
+      selected: '',
+      index: null
     };
   }  
 
@@ -66,7 +71,25 @@ export default class CaptureScreen extends React.Component {
   }
 
   cameraRoll = () => {
-    //access camera roll
+    // const fetchParams = {
+    //   first: 25,
+    //   groupTypes: 'All',
+    //   assetType: 'All',
+    // };
+    // CameraRoll.getPhotos(fetchParams, this.storeImages, this.logImageError);
+    CameraRoll.getPhotos({first: 25, groupTypes: 'All', assetType: 'All',}).then(
+      (data) =>{
+        const assets = data.edges;
+        const images = assets.map((asset) => asset.node.image);
+        this.setState({
+          images: images
+        })
+        console.log(images);
+      },
+      (error) => {
+        console.warn(error);
+      }
+    );
   }
 
   switchType = () => {
