@@ -10,9 +10,12 @@ import {
 
 export default class ChatScreen extends Component {
   static navigationOptions = {
-    title: 'Chat',
+    headerTitle: 'Joyline',
+    headerTitleStyle: {
+            fontSize: 16,
+    },
     headerStyle: {
-            backgroundColor: 'green',
+            backgroundColor: '#CFABF4',
             height: 50,
     },
     headerTintColor: '#FFFFFF',

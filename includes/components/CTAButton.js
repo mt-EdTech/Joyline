@@ -31,7 +31,7 @@ export default class CTAButton extends React.Component {
 const styles = StyleSheet.create({
   button: {
     height: 65,
-    width: 65,
+    width: 65,    
   },
   cta: {
     position: 'absolute',

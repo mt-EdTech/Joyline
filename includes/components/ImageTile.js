@@ -6,7 +6,7 @@ import { Image,
 
 const ImageTile = ({ source, labeltext }) => ( 
   <Image source={source} style={styles.imageTile}>
-    { this.labeltext &&
+    { this.labeltext != '' &&
       <Text style={styles.tileLabel}>
         {labeltext}
       </Text>
@@ -21,7 +21,7 @@ ImageTile.propTypes = {
 const styles = StyleSheet.create({
   imageTile: {
 	borderWidth: 1, 
-	borderColor: 'white', 
+	borderColor: 'black', 
 	height: 100, 
 	width: 125,
 	justifyContent: 'flex-end',

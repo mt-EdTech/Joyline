@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 import ImageTile from './ImageTile';
-import ClassTitle from './ClassTitle';
 import CTAButton from './CTAButton';
 
 import { Radar } from 'react-native-pathjs-charts'
@@ -19,9 +18,9 @@ const imageName = require('../../assets/images/chloe.png');
 
 export default class ProfileScreen extends Component {
   static navigationOptions = {
-    title: 'Profile',
+    title: 'Joyline',
     headerStyle: {
-            backgroundColor: 'green',
+            backgroundColor: '#CFABF4',
             height: 50,
     },
     headerTintColor: '#FFFFFF',
@@ -37,11 +36,11 @@ export default class ProfileScreen extends Component {
   render() {
 
     let data = [{
-      "Art": 6,
+      "Art": 5,
       "English": 3,
-      "Cognitive": 4,
+      "Cognitive": 6,
       "Social": 4,
-      "Physical": 3 
+      "Physical": 2 
     }]
 
     let options = {
@@ -56,7 +55,7 @@ export default class ProfileScreen extends Component {
       r: 70,
       max: 10,
       fill: "#fca222",
-      stroke: "#2980B9",
+      stroke: "#e6e8e9",
       animate: {
         type: 'oneByOne',
         duration: 200

@@ -15,7 +15,7 @@ const ChatListRow = ({ parentImage, childImage, header, recentMsg }) => (
     <ChatListText
       headerText={header}
       bodyText={recentMsg}
-    />
+    />    
   </View>
 );
 
@@ -24,9 +24,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    borderColor: 'green',
-    padding: 5, 
-  },
+    padding: 5,
+    borderBottomColor: 'green',
+    borderBottomWidth: 1,
+  },  
 });
 
 export default ChatListRow;

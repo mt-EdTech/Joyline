@@ -13,9 +13,12 @@ import Camera from 'react-native-camera';
 
 export default class CaptureScreen extends React.Component {
   static navigationOptions = {
-    title: 'Camera',
+    headerTitle: 'Joyline',
+    headerTitleStyle: {
+            fontSize: 16,
+    },
     headerStyle: {
-            backgroundColor: 'green',
+            backgroundColor: '#CFABF4',
             height: 50,
     },
     headerTintColor: '#FFFFFF',
@@ -35,9 +38,7 @@ export default class CaptureScreen extends React.Component {
         flashMode: Camera.constants.FlashMode.auto,
       },
       isRecording: false,
-      photos: [],
-      selected: '',
-      index: null
+      photos: [],      
     };
   }  
 
@@ -71,20 +72,14 @@ export default class CaptureScreen extends React.Component {
   }
 
   cameraRoll = () => {
-    // const fetchParams = {
-    //   first: 25,
-    //   groupTypes: 'All',
-    //   assetType: 'All',
-    // };
-    // CameraRoll.getPhotos(fetchParams, this.storeImages, this.logImageError);
     CameraRoll.getPhotos({first: 25, groupTypes: 'All', assetType: 'All',}).then(
       (data) =>{
         const assets = data.edges;
         const images = assets.map((asset) => asset.node.image);
         this.setState({
-          images: images
+          photos: images
         })
-        console.log(images);
+        console.log(photos);
       },
       (error) => {
         console.warn(error);

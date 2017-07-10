@@ -17,9 +17,12 @@ const recentMsg = 'Tommie did great withi his numbers today! And this text shoul
 
 export default class ChatListScreen extends Component {
   static navigationOptions = {
-    title: 'Parent Discussions',
+    headerTitle: 'Joyline',
+    headerTitleStyle: {
+            fontSize: 16,
+    },
     headerStyle: {
-            backgroundColor: 'green',
+            backgroundColor: '#CFABF4',
             height: 50,
     },
     headerTintColor: '#FFFFFF',
@@ -46,6 +49,6 @@ const styles = StyleSheet.create({
   },
   chatList: {
     flex: 1,
-    backgroundColor: 'white',    
+    backgroundColor: 'white',
   },  
 });
