@@ -5,18 +5,49 @@ import {
   View,
   StyleSheet,
   Text,
-  Dimensions
+  Dimensions,
+  FlatList
 } from 'react-native';
 
-import ImageTile from './ImageTile';
-import CTAButton from './CTAButton';
+import Footer from './Footer';
 
-import { Radar } from 'react-native-pathjs-charts'
+const imageName = require('../../assets/images/learnerImages/chloe.png');
+const spacer = require('../../assets/images/spacer.png');
 
-const momentImage = require('../../assets/images/moment.jpg');
-const imageName = require('../../assets/images/chloe.png');
+const profileData = [
+    { id : 1,
+      key: 'Art', 
+      textColor: '#804681', 
+      value: 23
+    }, 
+    { id : 2,
+      key: 'Cognitive', 
+      textColor: '#4ba0c7', 
+      value: 41
+    },
+    { id : 3,
+      key: 'English', 
+      textColor: '#74d959', 
+      value: 65
+    }, 
+    { id : 4,
+      key: 'Physical', 
+      textColor: '#fba43b', 
+      value: 39
+    },
+    { id : 5,
+      key: 'Social', 
+      textColor: '#d73e41', 
+      value: 51
+    }
+  ];
+
 
 export default class ProfileScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
   static navigationOptions = {
     title: 'Joyline',
     headerStyle: {
@@ -31,6 +62,20 @@ export default class ProfileScreen extends Component {
       width: Dimensions.get('window').width, 
       height: Dimensions.get('window').height
     }
+  }
+
+  drawCircles() {
+    return profileData.map(function(item, i) {
+      let size = item.value*2;
+      let r = item.value;
+      let bg = item.textColor;
+      let leftOffset = i*item.value/2;
+      let bottomOffset = i*item.value/2;
+
+      return (
+        <Image key={item.id} style={{ height: size, width: size, borderRadius: r, backgroundColor: bg, left: leftOffset, bottom: bottomOffset }} source={spacer} />
+      );
+    });
   }
 
   render() {
@@ -69,90 +114,63 @@ export default class ProfileScreen extends Component {
     }
 
     return (
-      <Image source={require('../../assets/images/chalkboard.png')} style={[styles.backgroundImage, this.getSize()]}>
+      <View style={[styles.background, this.getSize()]}>
         <View style={styles.profileSection}>
-            <View style={styles.profilePhotoSection}>
-              <Image source={ imageName } style={ styles.profileImage } />
-              <Text style={styles.text}>Age: 4</Text>
-              <Text style={styles.text}>Grade: Pre-K</Text>              
-            </View>
-            <View style={styles.profileCategorySection}>
-              <Radar data={data} options={options} />
-            </View>
-        </View>
-        <View style={styles.imageGrid}>
-            <ImageTile 
-                source={momentImage}                
-            />
-            <ImageTile 
-                source={momentImage}                
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
-            <ImageTile 
-                source={momentImage}
-            />
+          <View style={styles.profilePhotoSection}>
+            <Image source={ imageName } style={ styles.profileImage } />              
           </View>
-          <CTAButton />
-      </Image>
+          <View style={styles.profileDetailsSection}>
+            <Text style={styles.textPurple}>Chloe Torres</Text>
+            <Text style={styles.text}>Age: 4</Text>
+            <Text style={styles.text}>Class: Quails</Text>            
+          </View>
+        </View>
+        <View style={styles.analyticsSection}>
+          <View style={styles.categories}>
+            <View style={{flex:0.5}} />
+            <View style={{flex:3, paddingLeft: 20}} >
+              <FlatList
+                data={profileData}
+                renderItem={({item, index}) => <Text style={{ fontFamily: 'Arial',
+                                                              fontSize: 18,
+                                                              fontWeight: '600',
+                                                              marginBottom: 20,
+                                                              color: item.textColor}}>{item.key}
+                                               </Text>}
+              />
+            </View>
+            <View style={{flex:0.5}} />
+          </View>
+          <View style={styles.categoryCircles}>
+            {this.drawCircles()}
+          </View>
+        </View>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({  
-  backgroundImage: {
+  container: {
     flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    resizeMode: 'stretch',
-
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   profileSection: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',    
+    backgroundColor: 'white',
+    overflow: 'hidden',
+    borderBottomWidth: 1,
+    borderBottomColor: '#9a9c9e',
+  },
+  analyticsSection: {
+    flex: 2.5,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
     alignItems: 'center',    
     backgroundColor: 'white',
     overflow: 'hidden',
@@ -162,37 +180,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch',
     flex: 1,
+    padding: 20,
   },
   profileImage: {
-    width: 100,
-    height: 100,
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 15,
-    borderRadius: 50,
-    marginTop:15,
+    width: 125,
+    height: 125,
+    borderRadius: 63,
   },  
-  profileCategorySection: {
+  profileDetailsSection: {
+    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    flex: 2,
-  },
-  imageGrid: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    flexWrap: 'wrap',
-    overflow: 'scroll',
   },
   text: {
-    color: '#202020',
+    color: '#9a9c9e',
     fontFamily: 'Arial',
-    fontSize: 11,
-    fontWeight: '500',
+    fontSize: 16,
+    fontWeight: '200',
+    marginBottom: 5,
   },
-  roundedBar: {
-    width: 100 * 2,
-    height: 10,
-    backgroundColor: 'red'
-  }  
+  textPurple: {
+    color: '#CFABF4',
+    fontFamily: 'Arial',
+    fontSize: 18,
+    fontWeight: '500',
+    marginBottom: 10,
+  },
+  categoryText: {
+    fontFamily: 'Arial',
+    fontSize: 20,
+    fontWeight: '600',
+    marginBottom: 20,
+  },
+  categories: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  categoryCircles: {
+    flex: 2,
+    marginLeft: 50,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
 });

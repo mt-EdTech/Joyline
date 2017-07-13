@@ -10,8 +10,8 @@ import {
 
 import ChatListRow from './ChatListRow';
 
-const imageName = require('../../assets/images/chloe.png');
-const imageName2 = require('../../assets/images/mia.png');
+const imageName = require('../../assets/images/learnerImages/chloe.png');
+const imageName2 = require('../../assets/images/learnerImages/mia.png');
 const header = 'Annie(Tommie)';
 const recentMsg = 'Tommie did great withi his numbers today! And this text should be too long and hopefully wrap';
 

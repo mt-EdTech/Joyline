@@ -11,9 +11,9 @@ import {
 
 import ImageCircle from './ImageCircle';
 import ClassPicker from './ClassPicker';
-import CTAButton from './CTAButton';
+import Footer from './Footer';
 
-const imageName = require('../../assets/images/chloe.png');
+const imageName = require('../../assets/images/learnerImages/chloe.png');
 
 export default class ClassroomGridScreen extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ export default class ClassroomGridScreen extends Component {
     const namelabel = rowData.firstName + ' ' + rowData.lastName.substr(0,1);
     return (      
         <ImageCircle          
-          source={imageName}
+          source={rowData.photoUrl}
           label={namelabel}
         />      
     );
@@ -63,7 +63,7 @@ export default class ClassroomGridScreen extends Component {
           dataSource={this.state.dataSource}
           renderRow={this.renderGridCell}
         />
-        <CTAButton />
+        <Footer />
       </View>
     );
   }
@@ -101,145 +101,103 @@ ClassroomGridScreen.defaultProps = {
       id: 1,
       firstName: 'Alyssa',
       lastName: 'Cox',
-      photoUrl: '',      
+      photoUrl: require('../../assets/images/learnerImages/alyssa.jpg'),      
     },
     {
       id: 2,
-      firstName: 'Chloe',
-      lastName: 'Torres',
-      photoUrl: '',      
+      firstName: 'Amardeep',
+      lastName: 'Singh',
+      photoUrl: require('../../assets/images/learnerImages/amardeep.jpg'),      
     },
     {
       id: 3,
-      firstName: 'Mia',
-      lastName: 'Torres',
-      photoUrl: '',      
+      firstName: 'Brendan',
+      lastName: 'Tsia',
+      photoUrl: require('../../assets/images/learnerImages/brendan.png'),      
     },
     {
       id: 4,
-      firstName: '4',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Camden',
+      lastName: 'Claverie',
+      photoUrl: require('../../assets/images/learnerImages/camden.jpg'),      
     },
     {
       id: 5,
-      firstName: '5',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Chase',
+      lastName: 'Wong',
+      photoUrl: require('../../assets/images/learnerImages/chase.jpg'),      
     },
     {
       id: 6,
-      firstName: '6',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Chase',
+      lastName: 'Fujardo',
+      photoUrl: require('../../assets/images/learnerImages/chase2.jpg'),      
     },
     {
       id: 7,
-      firstName: '7',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Chloe',
+      lastName: 'Torres',
+      photoUrl: require('../../assets/images/learnerImages/chloe.png'),      
     },
     {
       id: 8,
-      firstName: '8',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Chris',
+      lastName: 'anikoa',
+      photoUrl: require('../../assets/images/learnerImages/chris.jpg'),      
     },
     {
       id: 9,
-      firstName: '9',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Colt',
+      lastName: 'Fester',
+      photoUrl: require('../../assets/images/learnerImages/colt.jpg'),      
     },
     {
       id: 10,
-      firstName: '10',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Colton',
+      lastName: 'Clav',
+      photoUrl: require('../../assets/images/learnerImages/colton.jpg'),      
     },
     {
       id: 11,
-      firstName: '11',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Jim',
+      lastName: 'Beasley',
+      photoUrl: require('../../assets/images/learnerImages/jim.jpg'),      
     },
     {
       id: 12,
-      firstName: '12',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Madison',
+      lastName: 'Tieu',
+      photoUrl: require('../../assets/images/learnerImages/madison.jpg'),      
     },
     {
       id: 13,
-      firstName: '13',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Mia',
+      lastName: 'Torres',
+      photoUrl: require('../../assets/images/learnerImages/mia.png'),      
     },
     {
       id: 14,
-      firstName: '14',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Luke',
+      lastName: 'Hoshi',
+      photoUrl: require('../../assets/images/learnerImages/reesa-luke.jpg'),      
     },
     {
       id: 15,
-      firstName: '15',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Savannah',
+      lastName: 'Raby',
+      photoUrl: require('../../assets/images/learnerImages/savannah.jpg'),      
     },
     {
       id: 16,
-      firstName: '16',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Stella',
+      lastName: 'Chan',
+      photoUrl: require('../../assets/images/learnerImages/stella.jpg'),      
     },
     {
       id: 17,
-      firstName: '17',
-      lastName: 'T',
-      photoUrl: '',      
-    },
-    {
-      id: 18,
-      firstName: '18',
-      lastName: 'T',
-      photoUrl: '',      
-    },
-    {
-      id: 19,
-      firstName: '19',
-      lastName: 'T',
-      photoUrl: '',      
-    },
-    {
-      id: 20,
-      firstName: '20',
-      lastName: 'T',
-      photoUrl: '',      
-    },
-    {
-      id: 21,
-      firstName: '21',
-      lastName: 'T',
-      photoUrl: '',      
-    },
-    {
-      id: 22,
-      firstName: '22',
-      lastName: 'T',
-      photoUrl: '',      
-    },
-    {
-      id: 23,
-      firstName: '23',
-      lastName: 'T',
-      photoUrl: '',      
-    },
-    {
-      id: 24,
-      firstName: '24',
-      lastName: 'T',
-      photoUrl: '',      
+      firstName: 'Westin',
+      lastName: 'Touesnard',
+      photoUrl: require('../../assets/images/learnerImages/westin.jpg'),      
     },
   ]
 };

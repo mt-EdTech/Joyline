@@ -33,8 +33,9 @@ import ChatScreen from './includes/components/ChatScreen';
 import ChatButton from './includes/components/ChatButton';
 import Footer from './includes/components/Footer';
 import ProfileScreen from './includes/components/ProfileScreen';
+import MomentsScreen from './includes/components/MomentsScreen';
 
-const imageName = require('./assets/images/chloe.png');
+const imageName = require('./assets/images/learnerImages/chloe.png');
 const headerImg = require('./assets/images/header-mobile.png');
 
 const ImageHeader = props => (
@@ -100,6 +101,11 @@ export default class LaunchScreen extends Component {
         <TouchableOpacity onPress={() => navigate('Profile')} style={styles.button}>
           <Text style={styles.buttonText}>
             Profile
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('Moments')} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Moments
           </Text>
         </TouchableOpacity>
         <Footer />
@@ -178,6 +184,17 @@ const routerConfig = {
   },
   Profile: {
       screen: ProfileScreen,
+      navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+                backgroundColor: '#CFABF4',
+                height: 50,
+        },    
+        header: (props) => <ImageHeader {...props}/>,
+      }),
+  },
+  Moments: {
+      screen: MomentsScreen,
       navigationOptions: ({navigation}) => ({
         headerTitleStyle: { color: '#fff' },
         headerStyle: {
