@@ -26,24 +26,31 @@ import {
 
 //import * as appStyles from './includes/styles/JoylineStyles';
 //import SearchBar from 'react-native-search-bar';
+import WelcomeScreen from './includes/components/WelcomeScreen';
+import RegistrationNameScreen from './includes/components/RegistrationNameScreen';
+import RegistrationBirthdateScreen from './includes/components/RegistrationBirthdateScreen';
+import RegistrationGenderScreen from './includes/components/RegistrationGenderScreen';
+import RegistrationPhotoScreen from './includes/components/RegistrationPhotoScreen';
 import ClassroomGridScreen from './includes/components/ClassroomGridScreen';
 import CaptureScreen from './includes/components/CaptureScreen';
 import ChatListScreen from './includes/components/ChatListScreen';
 import ChatScreen from './includes/components/ChatScreen';
 import ChatButton from './includes/components/ChatButton';
 import Footer from './includes/components/Footer';
+import HeaderBar from './includes/components/HeaderBar';
 import ProfileScreen from './includes/components/ProfileScreen';
 import MomentsScreen from './includes/components/MomentsScreen';
 
 const imageName = require('./assets/images/learnerImages/chloe.png');
-const headerImg = require('./assets/images/header-mobile.png');
 
+/*
 const ImageHeader = props => (
-      <View style={{ backgroundColor: '#CFABF4', height: 50, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ backgroundColor: '#1daecd', height: 50, alignItems: 'center', justifyContent: 'center' }}>
         <Image source={headerImg} />        
       </View>
     );
 //<Header {...props} style={{ backgroundColor: 'transparent' }}/>
+*/
 
 // Set the status bar for iOS to light
 StatusBar.setBarStyle('light-content');
@@ -52,19 +59,10 @@ export default class LaunchScreen extends Component {
   static navigationOptions = {
     headerTitleStyle: { color: '#fff' },
     headerStyle: {
-            backgroundColor: '#CFABF4',
+            backgroundColor: '#1daecd',
             height: 50,
     },    
-    header: (props) => <ImageHeader {...props} />,
-    /*
-    headerTitle: 'Joyline',
-    headerTitleStyle: {
-            fontSize: 16,
-    },
-    headerRight: <ChatButton badgeCount='3' />,     
-    headerTintColor: '#FFFFFF',
-    */
-    
+    header: (props) => <HeaderBar />,
   };
   
   constructor(props) {
@@ -83,6 +81,31 @@ export default class LaunchScreen extends Component {
 
     return (
       <View style={[styles.container, this.getSize()]}>        
+        <TouchableOpacity onPress={() => navigate('Welcome')} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Welcome1
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('RegistrationName')} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Registration Name
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('RegistrationBirthdate')} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Registration Birthdate
+          </Text>
+        </TouchableOpacity>        
+        <TouchableOpacity onPress={() => navigate('RegistrationGender')} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Registration Gender
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('RegistrationPhoto')} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Registration Photo
+          </Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate('Class')} style={styles.button}>
           <Text style={styles.buttonText}>
             Class
@@ -122,10 +145,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: '#CFABF4',
+    backgroundColor: '#1daecd',
     width: 300,
-    marginBottom: 20,
-    padding: 20
+    marginBottom: 10,
+    padding: 10
   },
   buttonText: {
     color: 'white',
@@ -138,15 +161,65 @@ const routerConfig = {
   Home: {
       screen: LaunchScreen
   },
+  Welcome: {
+      screen: WelcomeScreen,      
+      navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+                height: 0,
+        },    
+        header: () => {},
+      }),
+  },
+  RegistrationName: {
+      screen: RegistrationNameScreen,
+      navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+                height: 0,
+        },    
+        header: () => {},
+      }),
+  },
+  RegistrationBirthdate: {
+      screen: RegistrationBirthdateScreen,
+      navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+                height: 0,
+        },    
+        header: () => {},
+      }),
+  },
+  RegistrationGender: {
+      screen: RegistrationGenderScreen,
+      navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+                height: 0,
+        },    
+        header: () => {},
+      }),
+  },
+  RegistrationPhoto: {
+      screen: RegistrationPhotoScreen,
+      navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+                height: 0,
+        },    
+        header: () => {},
+      }),
+  },
   Class: {
       screen: ClassroomGridScreen,
       navigationOptions: ({navigation}) => ({
         headerTitleStyle: { color: '#fff' },
         headerStyle: {
-                backgroundColor: '#CFABF4',
+                backgroundColor: '#1daecd',
                 height: 50,
         },    
-        header: (props) => <ImageHeader {...props}/>,
+        header: (props) => <HeaderBar />,
       }),
   },
   ChatList: {
@@ -154,10 +227,10 @@ const routerConfig = {
       navigationOptions: ({navigation}) => ({
         headerTitleStyle: { color: '#fff' },
         headerStyle: {
-                backgroundColor: '#CFABF4',
+                backgroundColor: '#1daecd',
                 height: 50,
         },    
-        header: (props) => <ImageHeader {...props}/>,
+        header: (props) => <HeaderBar />,
       }),
   },
   Chat: {
@@ -165,10 +238,10 @@ const routerConfig = {
       navigationOptions: ({navigation}) => ({
         headerTitleStyle: { color: '#fff' },
         headerStyle: {
-                backgroundColor: '#CFABF4',
+                backgroundColor: '#1daecd',
                 height: 50,
         },    
-        header: (props) => <ImageHeader {...props}/>,
+        header: (props) => <HeaderBar />,
       }),
   },
   Capture: {
@@ -176,10 +249,10 @@ const routerConfig = {
       navigationOptions: ({navigation}) => ({
         headerTitleStyle: { color: '#fff' },
         headerStyle: {
-                backgroundColor: '#CFABF4',
+                backgroundColor: '#1daecd',
                 height: 50,
         },    
-        header: (props) => <ImageHeader {...props}/>,
+        header: (props) => {},
       }),
   },
   Profile: {
@@ -187,10 +260,10 @@ const routerConfig = {
       navigationOptions: ({navigation}) => ({
         headerTitleStyle: { color: '#fff' },
         headerStyle: {
-                backgroundColor: '#CFABF4',
+                backgroundColor: '#1daecd',
                 height: 50,
         },    
-        header: (props) => <ImageHeader {...props}/>,
+        header: (props) => <HeaderBar />,
       }),
   },
   Moments: {
@@ -198,10 +271,10 @@ const routerConfig = {
       navigationOptions: ({navigation}) => ({
         headerTitleStyle: { color: '#fff' },
         headerStyle: {
-                backgroundColor: '#CFABF4',
+                backgroundColor: '#1daecd',
                 height: 50,
         },    
-        header: (props) => <ImageHeader {...props}/>,
+        header: (props) => <HeaderBar />,
       }),
   },
 };

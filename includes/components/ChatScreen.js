@@ -38,8 +38,7 @@ export default class ChatScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-
-	    </Footer>  
+	     <Footer />
       </View>
     );
   }

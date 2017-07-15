@@ -114,7 +114,7 @@ export default class ProfileScreen extends Component {
     }
 
     return (
-      <View style={[styles.background, this.getSize()]}>
+      <View style={styles.container}>
         <View style={styles.profileSection}>
           <View style={styles.profilePhotoSection}>
             <Image source={ imageName } style={ styles.profileImage } />              
@@ -145,6 +145,7 @@ export default class ProfileScreen extends Component {
             {this.drawCircles()}
           </View>
         </View>
+        <Footer />
       </View>
     );
   }
@@ -156,6 +157,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 50,
   },
   profileSection: {
     flex: 1,

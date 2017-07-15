@@ -30,7 +30,7 @@ export default class ChatListScreen extends Component {
 
   render() {
     return (
-      <View style={styles.chatList}>
+      <View style={styles.container}>
         <ChatListRow parentImage = {imageName}
                      childImage = {imageName2}
                      header = {header}
@@ -44,11 +44,7 @@ export default class ChatListScreen extends Component {
 const styles = StyleSheet.create({  
   container: {
     flex: 1,
-    backgroundColor: 'green',
-    paddingTop: 20,    
-  },
-  chatList: {
-    flex: 1,
+    marginTop: 50,    
     backgroundColor: 'white',
   },  
 });

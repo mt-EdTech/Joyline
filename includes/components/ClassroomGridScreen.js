@@ -57,7 +57,7 @@ export default class ClassroomGridScreen extends Component {
 
   render() {
     return (      
-      <View style={[styles.background, this.getSize()]}>        
+      <View style={styles.background}>        
         <ListView contentContainerStyle={styles.list}
           pageSize={20}
           dataSource={this.state.dataSource}
@@ -72,6 +72,7 @@ export default class ClassroomGridScreen extends Component {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    marginTop: 50,
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     backgroundColor: 'white',

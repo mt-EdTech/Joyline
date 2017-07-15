@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     backgroundColor: 'white',
+    marginTop: 50,
   },
   imageGrid: {
     flexDirection: 'row',
