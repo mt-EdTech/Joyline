@@ -64,17 +64,33 @@ export default class ProfileScreen extends Component {
     }
   }
 
-  drawCircles() {
+  calcCircles() {
     return profileData.map(function(item, i) {
-      let size = item.value*2;
-      let r = item.value;
-      let bg = item.textColor;
-      let leftOffset = i*item.value/2;
-      let bottomOffset = i*item.value/2;
-
-      return (
-        <Image key={item.id} style={{ height: size, width: size, borderRadius: r, backgroundColor: bg, left: leftOffset, bottom: bottomOffset }} source={spacer} />
-      );
+      let count = profileData.length;
+      if (count > 0) {
+        let degrees = Math.round(360/count)*i;
+        let horizOffset = 0;
+        if( (degrees>0 && degrees<90) || (degrees>270 && degrees<360) ) {
+          horizOffset = -50;
+        } else if ( (degrees>90 && degrees<270) ) {
+          horizOffset = 50;
+        }
+        let cosine = Math.cos(degrees * Math.PI / 180);
+        let size = item.value*2;
+        let r = item.value;
+        let bg = item.textColor;
+        
+        let bottomOffset = (horizOffset+horizOffset-(2*horizOffset*horizOffset*cosine));
+        bottomOffset = Math.sqrt(bottomOffset);
+        if( !(bottomOffset) ) {
+          bottomOffset = 0;
+        }
+        console.log("color:"+bg+",count:"+count+",index:"+i+",degrees:"+degrees+",horizOffset:"+horizOffset+",bottomOffset:"+bottomOffset);
+        console.log("cosine:"+cosine );
+        return (
+          <Image key={item.id} style={{ height: size, width: size, borderRadius: r, backgroundColor: bg, left: horizOffset, bottom: bottomOffset, overflow: 'visible' }} source={spacer} />
+        );
+      }
     });
   }
 
@@ -142,7 +158,7 @@ export default class ProfileScreen extends Component {
             <View style={{flex:0.5}} />
           </View>
           <View style={styles.categoryCircles}>
-            {this.drawCircles()}
+            {this.calcCircles()}
           </View>
         </View>
         <Footer />

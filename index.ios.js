@@ -33,6 +33,7 @@ import RegistrationGenderScreen from './includes/components/RegistrationGenderSc
 import RegistrationPhotoScreen from './includes/components/RegistrationPhotoScreen';
 import ClassroomGridScreen from './includes/components/ClassroomGridScreen';
 import CaptureScreen from './includes/components/CaptureScreen';
+import CapturePreview from './includes/components/CapturePreview';
 import ChatListScreen from './includes/components/ChatListScreen';
 import ChatScreen from './includes/components/ChatScreen';
 import ChatButton from './includes/components/ChatButton';
@@ -111,9 +112,9 @@ export default class LaunchScreen extends Component {
             Class
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigate('Capture')} style={styles.button}>
+        <TouchableOpacity onPress={() => navigate('CapturePreview')} style={styles.button}>
           <Text style={styles.buttonText}>
-            Camera
+            Capture Preview
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate('ChatList')} style={styles.button}>
@@ -255,6 +256,17 @@ const routerConfig = {
         header: (props) => {},
       }),
   },
+  CapturePreview: {
+      screen: CapturePreview,
+      navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+                backgroundColor: '#1daecd',
+                height: 50,
+        },    
+        header: (props) => {},
+      }),
+  },  
   Profile: {
       screen: ProfileScreen,
       navigationOptions: ({navigation}) => ({

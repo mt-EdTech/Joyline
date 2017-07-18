@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import ChatListRow from './ChatListRow';
+import Footer from './Footer';
 
 const imageName = require('../../assets/images/learnerImages/chloe.png');
 const imageName2 = require('../../assets/images/learnerImages/mia.png');
@@ -36,6 +37,7 @@ export default class ChatListScreen extends Component {
                      header = {header}
                      recentMsg = {recentMsg}
         />
+        <Footer />
       </View>
     );
   }
