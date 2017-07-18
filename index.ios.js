@@ -27,6 +27,7 @@ import {
 //import * as appStyles from './includes/styles/JoylineStyles';
 //import SearchBar from 'react-native-search-bar';
 import WelcomeScreen from './includes/components/WelcomeScreen';
+import RegistrationLoginScreen from './includes/components/RegistrationLoginScreen';
 import RegistrationNameScreen from './includes/components/RegistrationNameScreen';
 import RegistrationBirthdateScreen from './includes/components/RegistrationBirthdateScreen';
 import RegistrationGenderScreen from './includes/components/RegistrationGenderScreen';
@@ -85,6 +86,11 @@ export default class LaunchScreen extends Component {
         <TouchableOpacity onPress={() => navigate('Welcome')} style={styles.button}>
           <Text style={styles.buttonText}>
             Welcome1
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('RegistrationLogin')} style={styles.button}>
+          <Text style={styles.buttonText}>
+            Registration Login
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate('RegistrationName')} style={styles.button}>
@@ -164,6 +170,16 @@ const routerConfig = {
   },
   Welcome: {
       screen: WelcomeScreen,      
+      navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+                height: 0,
+        },    
+        header: () => {},
+      }),
+  },
+  RegistrationLogin: {
+      screen: RegistrationLoginScreen,
       navigationOptions: ({navigation}) => ({
         headerTitleStyle: { color: '#fff' },
         headerStyle: {
