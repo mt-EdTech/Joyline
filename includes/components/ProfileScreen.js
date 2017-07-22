@@ -17,27 +17,27 @@ const spacer = require('../../assets/images/spacer.png');
 const profileData = [
     { id : 1,
       key: 'Art', 
-      textColor: '#804681', 
+      textColor: 'rgba(128, 70, 129, 0.7)', 
       value: 23
     }, 
     { id : 2,
       key: 'Cognitive', 
-      textColor: '#4ba0c7', 
+      textColor: 'rgba(75, 160, 199, 0.7)', 
       value: 41
     },
     { id : 3,
       key: 'English', 
-      textColor: '#74d959', 
+      textColor: 'rgba(116, 217, 89, 0.7)', 
       value: 65
     }, 
     { id : 4,
       key: 'Physical', 
-      textColor: '#fba43b', 
-      value: 39
+      textColor: 'rgba(251, 164, 59, 0.7)', 
+      value: 90
     },
     { id : 5,
       key: 'Social', 
-      textColor: '#d73e41', 
+      textColor: 'rgba(215, 62, 65, 0.7)', 
       value: 51
     }
   ];
@@ -67,28 +67,22 @@ export default class ProfileScreen extends Component {
   calcCircles() {
     return profileData.map(function(item, i) {
       let count = profileData.length;
-      if (count > 0) {
+      if (count > 0) {        
         let degrees = Math.round(360/count)*i;
-        let horizOffset = 0;
-        if( (degrees>0 && degrees<90) || (degrees>270 && degrees<360) ) {
-          horizOffset = -50;
-        } else if ( (degrees>90 && degrees<270) ) {
-          horizOffset = 50;
-        }
-        let cosine = Math.cos(degrees * Math.PI / 180);
-        let size = item.value*2;
-        let r = item.value;
+        let radians = degrees*Math.PI/180;
+        let radius = 50;
+        let horizOffset = -1*Math.round(radius*Math.cos(radians) + 0);
+        let verticalOffset = -1*Math.round(radius*Math.sin(radians) + 0);
+        let size = item.value*1.5;
+        let r = size/2;
         let bg = item.textColor;
         
-        let bottomOffset = (horizOffset+horizOffset-(2*horizOffset*horizOffset*cosine));
-        bottomOffset = Math.sqrt(bottomOffset);
-        if( !(bottomOffset) ) {
-          bottomOffset = 0;
+        if( !(verticalOffset) ) {
+          verticalOffset = 0;
         }
-        console.log("color:"+bg+",count:"+count+",index:"+i+",degrees:"+degrees+",horizOffset:"+horizOffset+",bottomOffset:"+bottomOffset);
-        console.log("cosine:"+cosine );
+        console.log("color:"+bg+",count:"+count+",index:"+i+",degrees:"+degrees+",horizOffset:"+horizOffset+",verticalOffset:"+verticalOffset);
         return (
-          <Image key={item.id} style={{ height: size, width: size, borderRadius: r, backgroundColor: bg, left: horizOffset, bottom: bottomOffset, overflow: 'visible' }} source={spacer} />
+          <Image key={item.id} style={{ position: 'absolute', height: size, width: size, borderRadius: r, backgroundColor: bg, left: horizOffset, bottom: verticalOffset, overflow: 'visible' }} source={spacer} />
         );
       }
     });
@@ -235,9 +229,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   categoryCircles: {
+    position: 'relative',
     flex: 2,
-    marginLeft: 50,
+    marginLeft: 90,
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'center',
   },
 });
