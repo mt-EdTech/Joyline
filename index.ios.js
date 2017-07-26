@@ -28,6 +28,7 @@ import {
 //import SearchBar from 'react-native-search-bar';
 import WelcomeScreen from './includes/components/WelcomeScreen';
 import RegistrationLoginScreen from './includes/components/RegistrationLoginScreen';
+import RegistrationSignup from './includes/components/RegistrationSignupScreen';
 import RegistrationNameScreen from './includes/components/RegistrationNameScreen';
 import RegistrationBirthdateScreen from './includes/components/RegistrationBirthdateScreen';
 import RegistrationGenderScreen from './includes/components/RegistrationGenderScreen';
@@ -85,12 +86,17 @@ export default class LaunchScreen extends Component {
       <View style={[styles.container, this.getSize()]}>        
         <TouchableOpacity onPress={() => navigate('Welcome')} style={styles.button}>
           <Text style={styles.buttonText}>
-            Welcome1
+            Welcome
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate('RegistrationLogin')} style={styles.button}>
           <Text style={styles.buttonText}>
             Registration Login
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('RegistrationSignup')} style={styles.button}>
+          <Text style={styles.buttonText}>
+              Registration Signup
           </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate('RegistrationName')} style={styles.button}>
@@ -113,11 +119,17 @@ export default class LaunchScreen extends Component {
             Registration Photo
           </Text>
         </TouchableOpacity>
+        {/*
         <TouchableOpacity onPress={() => navigate('Class')} style={styles.button}>
           <Text style={styles.buttonText}>
             Class
           </Text>
         </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigate('Capture')} style={styles.button}>
+          <Text style={styles.buttonText}>
+              Capture Screen
+          </Text>
+      </TouchableOpacity>
         <TouchableOpacity onPress={() => navigate('CapturePreview')} style={styles.button}>
           <Text style={styles.buttonText}>
             Capture Preview
@@ -138,6 +150,7 @@ export default class LaunchScreen extends Component {
             Moments
           </Text>
         </TouchableOpacity>
+        */}
         <Footer />
       </View>
     );
@@ -187,6 +200,16 @@ const routerConfig = {
         },    
         header: () => {},
       }),
+  },
+  RegistrationSignup: {
+    screen: RegistrationSignup,
+    navigationOptions: ({navigation}) => ({
+        headerTitleStyle: { color: '#fff' },
+        headerStyle: {
+            height: 0,
+        },
+        header: () => {},
+    }),
   },
   RegistrationName: {
       screen: RegistrationNameScreen,
