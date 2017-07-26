@@ -26,6 +26,10 @@ export default class RegistrationLoginScreen extends Component {
         };
     }
 
+    signup() {
+        //do something
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -50,9 +54,11 @@ export default class RegistrationLoginScreen extends Component {
                             placeholder="Password"
                             value={this.state.password}
                         />
-                        <View style={styles.rectangularButton}>
-                            <Text style={styles.standardText}>Sign up</Text>
-                        </View>
+                        <TouchableOpacity onPress={this.signup}>
+                            <View style={styles.rectangularButton}>
+                                <Text style={styles.standardText}>Sign up</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </Image>
             </View>
